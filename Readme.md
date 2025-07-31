@@ -283,3 +283,7 @@ To add a new language to the website, follow these steps:
 ## Host on GitHub Pages
 The template contains a working GitHub Actions workflow to build and deploy the site to GitHub Pages.
 This workflow is located in `.github/workflows/jekyll.yml` and will automatically build the site and deploy it to the `gh-pages` branch when changes are pushed to the `main` branch.
+
+If pushing to a repository instead of a root website, you will need to set the `baseurl` in `_config.yml` to the name of the repository (e.g., `/desi_template`). Do not add the trailing slash, it will be added in the head of the pages automatically.
+
+> Github pages seems to remove the trailing slash from `site.baseurl` so I fixed it that way
