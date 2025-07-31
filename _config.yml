@@ -20,7 +20,7 @@ links:
   email: mailto:email@example.com
 
 # Use this if you deploy to a subdirectory, e.g. /desihigh_website/
-baseurl: /
+baseurl: /dest_template/
 
 # Pagination & Collections setup
 collections:
@@ -88,3 +88,4 @@ plugins:
 
 exclude:
   - Readme.md
+  - Licence.md
