@@ -1,13 +1,21 @@
 {% for lang in site.data.lang %}
 <div class="content" id="hide-{{ lang.code }}">
     <!-- In theory, only 1 article w/ given name per lang -->
-    {% assign term = site.static | where: "lang", lang.code | where: "name", include.name | first %}
-    {% if term %}
-        {{ term.content | markdownify }}
+    {% assign element = site.static | where: "lang", lang.code | where: "name", include.name | first %}
+    {% if element %}
+        {% if include.markdownify %}
+            {{ element.content | markdownify }}
+        {% else %}
+            {{ element.content }}
+        {% endif %}
     {% else %}
-        {% assign privacy_policy = site.static | where: "lang", "en" | where: "name", include.name | first %}
+        {% assign element = site.static | where: "lang", "en" | where: "name", include.name | first %}
         <!-- Fallback to English if not found in the current language -->
-        {{ privacy_policy.content | markdownify }}
+        {% if include.markdownify %}
+            {{ element.content | markdownify }}
+        {% else %}
+            {{ element.content }}
+        {% endif %}
     {% endif %}
 </div>
 {% endfor %}
