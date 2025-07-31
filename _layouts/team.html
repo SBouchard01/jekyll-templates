@@ -7,6 +7,13 @@ layout: default
 {% if page.email %}
     {% assign email_icon = "fa-solid fa-envelope" %}
 {% endif %}
+
+{% if page.surname %}
+    {% assign name = page.surname | append: " " | append: page.name %}
+{% else %}
+    {% assign name = page.name %}
+{% endif %}
+
 <div class="content">
     <div class="section">
         <div class="container">
@@ -14,12 +21,12 @@ layout: default
                 {% if page.image %}
                 <div class="column is-narrow">
                     <figure class="image is-64x64">
-                        <img class="is-rounded" src="{{ page.image }}" alt="{{ page.name }}" style="max-width: 64px; max-height: 64px; object-fit: cover;">
+                        <img class="is-rounded" src="{{ page.image }}" alt="{{ name }}" style="max-width: 64px; max-height: 64px; object-fit: cover;">
                     </figure>
                 </div>
                 {% endif %}
                 <div class="column">
-                    <h1>{{ page.name }}</h1>
+                    <h1>{{ name }}</h1>
                     <p>
                         <i class="{{ loc_icon }}"></i> {{ page.location }}
                     {% if page.location and page.email %} <br> {% endif %}
