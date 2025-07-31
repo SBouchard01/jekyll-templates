@@ -1,4 +1,5 @@
 ---
+layout: none
 ---
 // Updates the theme based on user preference or if toggled
 function updateTheme(theme) {
@@ -9,7 +10,7 @@ function updateTheme(theme) {
 // toggle between light and dark themes when called
 async function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : '{{ site.css_theme }}';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     updateTheme(newTheme);
 }
 
