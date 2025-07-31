@@ -88,4 +88,4 @@ plugins:
 
 exclude:
   - Readme.md
-  - Licence.md
+  - LICENSE
