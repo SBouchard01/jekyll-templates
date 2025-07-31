@@ -259,6 +259,8 @@ The data in the website is translated in 2 different ways :
     {% include static_translations.html name="name key content" %}
     ```
   - The function will add all available translations (or english if no translation is available) to the page, and will only display the content in the selected language.
+  - To avoid recursive loading hell, please do not include static translations in static translations files.
+
 
 > English is always the fallback of the translations, so if a translation is not available in the selected language, the English version will be displayed instead.
 > The english content is encoded in the HTML files in the first case, and should always be provided in the _static collection files in the second case.
