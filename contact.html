@@ -1,0 +1,93 @@
+---
+title: Contact
+layout: default
+---
+
+<section class="section">
+    <div class="container">
+        <div class="content">
+            <h1 class="title" data-i18n="Contact us!">Contact us!</h1>
+
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                <div class="content" data-i18n="disabled">
+                    <p>This contact form is currently disabled.</p>
+                </div>
+            </div>
+
+            <p data-i18n="Contact content">If you have any questions or need assistance, please reach out to us via the form below.</p>
+
+            <!-- Needs to be linked with a backend framework through an API or js functions -->
+            <fieldset disabled>
+            <form action="/submit_contact" method="post">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" data-i18n="From">From</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input" type="text" placeholder="Name" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="yourname@example.com" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <!-- <span class="icon is-small is-right">
+                                    <i class="fas fa-check"></i>
+                                </span> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" data-i18n="Subject">Subject</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input" type="text" id="subject" placeholder="Subject" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-tag"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label" for="message" data-i18n="Message">Message</label>
+                    </div>
+                   <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea" id="message" name="message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary is-inverted" type="submit" data-i18n="Submit">Submit</button>
+                                <button class="button is-danger is-inverted" type="reset" data-i18n="Cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </fieldset>
+        </div>
+    </div>
+</section>

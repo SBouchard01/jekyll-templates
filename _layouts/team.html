@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{% if page.location %}
+    {% assign loc_icon = "fa-solid fa-location-dot" %}
+{% endif %}
+{% if page.email %}
+    {% assign email_icon = "fa-solid fa-envelope" %}
+{% endif %}
+<div class="content">
+    <div class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                {% if page.image %}
+                <div class="column is-narrow">
+                    <figure class="image is-64x64">
+                        <img class="is-rounded" src="{{ page.image }}" alt="{{ page.name }}" style="max-width: 64px; max-height: 64px; object-fit: cover;">
+                    </figure>
+                </div>
+                {% endif %}
+                <div class="column">
+                    <h1>{{ page.name }}</h1>
+                    <p>
+                        <i class="{{ loc_icon }}"></i> {{ page.location }}
+                    {% if page.location and page.email %} <br> {% endif %}
+                        <i class="{{ email_icon }}"></i>
+                        <a href="mailto:{{ page.email }}">{{ page.email }}</a>
+                    </p>
+                </div>
+                <div class="column is-narrow">
+                    {% for social in page.social %}
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="{{ social.url }}" target="_blank">
+                            {% assign brand_icon = "fa-brands fa-" | append: social.name %}
+                            {% assign fa_icon = social.icon | default: brand_icon %}
+                            <i class="fa-lg {{ fa_icon }}"></i>
+                        </a>
+                    </span>    
+                    {% endfor %}
+                </div>
+            </div>
+
+            <hr>
+
+            {{ content | markdownify }}
+        </div>
+    </div>
+</div>

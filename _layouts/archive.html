@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+{% for lang in site.data.lang %}
+    {% if lang.code == page.title %} {% assign is_lang = lang.name %} {% endif %}
+{% endfor %}
+
+{% if page.type == "year" %}
+    {% assign date = page.date | date: "%Y" %}
+    {% assign url_date = page.date | date: "%Y" %}
+{% elsif page.type == "month" %}
+    {% assign date = page.date | date: "%B %Y" %}
+    {% assign url_date = page.date | date: "%Y/%m" %}
+{% elsif page.type == "day" %}
+    {% assign date = page.date | date: "%B %-d, %Y" %}
+    {% assign url_date = page.date | date: "%Y/%m/%d" %}
+{% else %} {% unless is_lang %}
+    {% assign tag = page.title %}
+{% endunless%}
+{% endif %}
+
+<section class="section">
+    {% if date %} 
+        {% include breadcrumbs.html breadcrumbs=true home=true size="is-medium" %}
+    {% else %}
+        {% include breadcrumbs.html back=true size="is-medium" %}
+    {% endif %}
+    <div class="container">
+        <div class="level">
+            <div class="level-left">
+                <div class="content">
+                    <h1>
+                        <span data-i18n="{{ page.collection_name | capitalize }} archive">
+                            {{ page.collection_name | capitalize }} archive
+                        </span> 
+                        - {{ date }} {{ is_lang }} {{ tag }}
+                    </h1>
+                </div>
+            </div>
+            <div class="level-right">
+                {% unless date %}{% include language_selector.html date=url_date %}{% endunless %}
+            </div>
+        </div>
+
+        <div class="content">
+            <hr>
+                {% include paginator_posts.html loop_on=page.documents %}
+            <hr>
+        </div>
+
+        <!-- Note : Pagination does not work with jekyll-archive -->
+
+    </div>
+</section>

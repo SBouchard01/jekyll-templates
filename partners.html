@@ -1,0 +1,58 @@
+---
+title: Partners
+layout: default
+permalink: partners/
+pagination: 
+    enabled: true
+    collection: partners
+    sort_reverse: false
+    sort_field: 'name'
+    per_page: 9
+---
+
+<section class="section">
+    <div class="container">
+        <div class="content" >
+            <h1 data-i18n="Partners">Partners</h1>
+            <p data-i18n="Partners intro">Partners introduction</p>
+        </div>
+    
+        <hr>
+
+        <div class="columns is-multiline">
+            {% for partner in paginator.posts %}
+            {% assign url = partner.url | remove_first: "/" %}
+            <div class="column is-one-third">
+                <a class="card" href="{{ url }}">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="columns">
+                            <div class="column">
+                                <h2 class="title">{{ partner.name }}</h2>
+                            </div>
+                            <div class="column is-narrow">
+                                <img src="assets/img/lang/{{ partner.lang }}.png" alt="language flag" style="width: 20px;">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <p data-i18n="{{ partner.name }}/excerpt">{{ partner.excerpt }}</p>
+                        </div>
+                        
+                        <p><strong><span data-i18n="Location">Location</span>:</strong> <span data-i18n="{{ partner.name }}/location">{{ partner.location }}</span></p>
+                        <p><strong><span data-i18n="Contact">Contact</span>:</strong> <a href="mailto:{{ partner.contact }}">{{ partner.contact }}</a></p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="content">
+            <p data-i18n="Become partner">If you are interested in becoming a partner, please <a href="contact.html">contact us</a> for more information.</p>
+        </div>
+        {% include pagination.html hide_1=true %}
+    </div>
+</section>

@@ -1,0 +1,28 @@
+{% assign loop_on = include.loop_on | default: paginator.posts %}
+
+<div class="columns is-centered">
+    <div class="column is-four-fifths">
+
+        {% for post in loop_on %}
+        <div class="columns">
+            <div class="column">
+                {% assign url = post.url | remove_first: "/" %}
+                <a href="{{ url }}" class="underlined_on_hover">
+                    <p class="title is-4">{{ post.title }}</p>
+                </a>
+                <p class="subtitle is-7">{{ post.date | date_to_string }}{% if post.author %} - {{ post.author }}{% endif %}</p>
+            </div>
+            <div class="column is-narrow">
+                {% if post.lang %}
+                <img src="assets/img/lang/{{ post.lang }}.png" style="width: 30px;">
+                {% endif %}
+            </div>
+        </div>
+
+        <p class="content">{{ post.excerpt }}</p>
+
+        {% if forloop.index < forloop.length %}<hr>{% endif %}
+
+        {% endfor %}
+    </div>
+</div>

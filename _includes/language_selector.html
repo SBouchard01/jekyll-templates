@@ -1,0 +1,109 @@
+{% assign icon = include.icon | default: "fa-solid fa-lg fa-filter" %}
+{% assign button_class = include.button_class | default: "button" %}
+{% assign button_text = include.button_text | default: "Filter" %}
+{% assign button_i18n = include.button_i18n | default: "Filter" %}
+{% assign url = page.url | remove: "index.html" %}
+
+<!-- Remove leading slash -->
+{% assign url_0 = url | slice: 0 %}
+{% if url_0 == "/" %}
+    {% assign url = url | remove_first: "/" %}
+{% endif %}
+
+<!-- Remove provided string ? -->
+{% if include.to_remove %}
+    {% assign url = url | replace: include.to_remove "" %}
+{% endif %}
+
+<!-- Remove date if provided -->
+{% if include.date %}
+    {% assign to_remove = include.date | replace: "-", "/" | append: "/" %}
+    {% assign url = url | replace: to_remove "" %}
+{% endif %}
+
+<!-- Remove page number if provided -->
+{% assign page_number = include.page_number | default: false %}
+{% if page_number == 1 %}
+    {% assign page_number = false %}
+{% endif %}
+
+{% if page_number %}
+    {% assign to_remove = page_number | append: "/" %}
+    {% assign url = url | replace: to_remove "" %}
+{% endif %}
+
+<!-- Remove all language codes in website -->
+{% for lang in site.data.lang %}
+    {% assign to_remove = lang.code | append: "/" %}
+    {% assign url = url | replace: to_remove "" %}
+{% endfor %}
+
+<!-- Add trailing slash if removed -->
+{% assign url_last = url | slice: -1 %}
+{% unless url_last == "/" %}
+    {% assign url = url | append: "/" %}
+{% endunless %}
+
+<div class="dropdown is-right is-hidden-mobile">
+    <div class="dropdown-trigger">
+        <button class="{{ button_class }}" id="Dropdown">
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="{{ icon }}"></i> 
+                </span>
+                <span>
+                    &nbsp; <span data-i18n="{{ button_i18n }}">{{ button_text }}</span>
+                </span>
+                <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+            </span>
+        </button>
+    </div>
+    <div class="dropdown-menu">
+        <div class="dropdown-content">
+            {% for item in site.data.lang %}
+            {% assign goto = url | append: item.code | append: "/" %}
+            <a class="dropdown-item" href="{{ goto }}">
+                <img src="assets/img/lang/{{ item.code }}.png" style="width: 30px;"> &nbsp; {{ item.name }}
+            </a>
+            {% endfor %}
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" href="{{ url }}">
+                <img src="assets/img/lang/un_flag.png" style="width: 30px;"> &nbsp; <span data-i18n="All Languages">All Languages</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<div class="box is-hidden-desktop">
+    <div class="level">
+        <div class="level-item">
+            <span class="icon">
+                <i class="{{ icon }}"></i> 
+            </span>
+            <span>
+                &nbsp; <span data-i18n="{{ button_i18n }}">{{ button_text }}</span>
+            </span>
+            <span>&nbsp;:&nbsp;</span>
+        </div>
+        
+        <div class="columns is-multiline is-centered  has-text-centered is-mobile"> 
+            {% for item in site.data.lang %}
+            <div class="column is-narrow">
+                {% assign goto = url | append: item.code | append: "/" %}
+                <a class="has-text-text" href="{{ goto }}">
+                    <img src="assets/img/lang/{{ item.code }}.png" style="width: 30px;"> &nbsp; {{ item.name }}
+                </a>
+            </div>
+            {% endfor %}
+            <hr>
+            <div class="column is-full">
+                <a class="has-text-text" href="{{ url }}">
+                    <img src="assets/img/lang/un_flag.png" style="width: 30px;"> &nbsp; <span data-i18n="All Languages">All Languages</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

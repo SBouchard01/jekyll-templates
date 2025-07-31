@@ -1,0 +1,60 @@
+{
+    "Team Login": "Connexion",
+    "Language": "Langue",
+    "FAQ": "FAQ",
+    "Collaboration": "Collaboration",
+    "Team": "Équipe",
+    "Partners": "Partenaires",
+    "Blog": "Blog",
+    "Terms & Privacy": "Conditions & Confidentialité",
+    "Contact": "Contact",
+    "Credits": "Crédits",
+
+    "Filter": "Filtrer",
+    "Previous": "Précédent",
+    "Next": "Suivant",
+    "Select a language": "Sélectionnez une langue",
+
+    "DESI template": "Modèle DESI",
+    "demo model": "Modèle de démonstration",
+
+    "Latest Posts": "Derniers Articles",
+    "Posts archive": "Archives des Articles",
+    "Latest News": "Dernières Actualités",
+    "Latest Events": "Derniers Événements",
+    "Read more": "Lire la suite",
+    "See more": "Voir plus",
+
+    "FAQ title": "Foire aux questions",
+    "Ask a question": "Poser une question",
+    "faq_1": {
+        "question": "Comment fonctionne la FAQ ?",
+        "answer": "Ceci est une réponse à la question."
+    },
+
+    "Meet the team!": "Rencontrez l'équipe !",
+    "team": {
+        "Bao Ban": "Bao Ban est un éducateur passionné et un défenseur de la communication scientifique. Fort d'une formation en physique et d'un vif intérêt pour la vulgarisation, Bao a consacré sa carrière à rendre accessibles au public des concepts scientifiques complexes. Son objectif principal est de mobiliser les jeunes apprenants et d'inspirer la prochaine génération de scientifiques.",
+        "Retired Bao Ban": "Ce Bao Ban est vieux et est parti se retirer dans les montagnes de l'Arizona. Nous lui souhaitons le meilleur !"
+    },
+    "Legacy members": "Anciens membres",
+    "Legacy members 1": "Ancien membres intro",
+
+    "Blog intro": "Introduction au blog",
+    "Partners intro": "Introduction aux partenaires",
+    "Become partner": "Si vous souhaitez devenir partenaire de DESI High, veuillez nous <a href=\"contact.html\">contacter</a> pour plus d'informations.",
+    "Location": "Localisation",
+    "Partner 1 - English": {
+        "location": "Localisation (fr)",
+        "excerpt": "Ceci est un extrait de la description du partenaire 1."
+    },
+
+    "Contact us!": "Contactez-nous !",
+    "Contact content": "Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter via le formulaire ci-dessous.",
+    "disabled": "Ce formulaire de contact est actuellement désactivé.",
+    "From": "De",
+    "Subject": "Sujet",
+    "Message": "Message",
+    "Submit": "Envoyer",
+    "Cancel": "Annuler"
+}

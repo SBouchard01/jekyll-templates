@@ -1,0 +1,45 @@
+
+<footer class="footer">
+    <!-- <div class="container"> -->
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <a href="https://www.desi.lbl.gov/" target="_blank">
+                        <img class="only-on-dark" src="assets/img/logos/footer_logo_dark.png" alt="Logo" width="150px">
+                        <img class="only-on-light" src="assets/img/logos/footer_logo_light.png" alt="Logo" width="150px">
+                    </a>
+                    <!-- Not translated on purpose ? -->
+                    <p class="subtitle is-7">{{ site.footer }}</p>
+                </div>
+            </div>
+
+            <div class="level-item" id="social-icons">
+                {% for item in site.data.social %}
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="{{ item.url }}" target="_blank">
+                            <i class="fa-brands fa-lg {{ item.icon }}"></i>
+                        </a>
+                    </span>    
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="level-right">
+                <div class="level-item">
+                    <nav class="level"> 
+                        {% for item in site.data.footer_links %}                 
+                        <div class="level-item">
+                            <a class="has-text-text" href="{{ item.url }}" data-i18n="{{ item.name }}">{{ item.name }}</a>
+                        </div>
+                        {% endfor %}
+                    </nav>
+                </div>
+                <span class="is-hidden-touch"> &nbsp;</span>
+                <a href="{{ site.license }}" target="_blank" class="level-item">
+                    <img src="assets/img/logos/copyright.png" alt="BSD 3-Clause License" width="100px">
+                </a>
+            </div>
+        </div>
+    <!-- </div> -->
+</footer>

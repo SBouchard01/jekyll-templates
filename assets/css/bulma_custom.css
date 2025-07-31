@@ -1,0 +1,28 @@
+
+:root {
+  --bulma-navbar-height: 6rem;
+}
+
+.navbar {
+    --bulma-navbar-burger-color: var(--bulma-primary);
+    --bulma-navbar-dropdown-arrow: var(--bulma-primary);
+}
+
+.navbar-brand .navbar-item {
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.navbar-logo {
+    width: auto !important;
+    height: var(--bulma-navbar-height) !important;
+    max-height: var(--bulma-navbar-height) !important;
+}
+
+.hidden-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.underlined_on_hover:hover {
+    text-decoration: underline;
+}

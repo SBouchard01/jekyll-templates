@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="section">
+    {% include breadcrumbs.html breadcrumbs=true home=true size="is-medium" %}
+    <div class="container">
+        <div class="content">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+
+            <hr>
+
+            {{ content | markdownify }}
+        </div>
+    </div>
+</div>
