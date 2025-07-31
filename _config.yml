@@ -19,7 +19,7 @@ css_theme: light
 links:
   email: mailto:email@example.com
 
-# Use this if you deploy to a subdirectory, e.g. /desi_template/
+# Use this if you deploy to a subdirectory, e.g. /desi_template, with no trailing slash
 baseurl: /desi_template
 
 # Pagination & Collections setup
