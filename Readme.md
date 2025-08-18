@@ -163,6 +163,7 @@ categories: ["en", "tag2"] # The categories associated with the post. One of the
 ---
 Post content goes here.
 ```
+Provide an excerpt if the first paragraph of the post is too long, contains some big display (such as an image) or if you just want to display something else in the post lists.
 
 <a id="categorie-tags"></a>
 > Categories are used to generate the blog archive pages, so they should be used to categorize posts (including the translation filter). The `lang` label is used to display the correct language flag in the blog page.
