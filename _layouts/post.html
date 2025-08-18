@@ -21,7 +21,7 @@ layout: default
                 {% unless tag == page.lang %}
                     {% assign slug_tag = tag | slugify %}
                     {% assign href = page.url | remove_first: '/' | split: '/' | first | append: '/' | append: slug_tag %}
-                    <a class="tag is-hoverable is-link" href="{{ href }}">{{ tag }}</a>
+                    <a class="tag is-hoverable is-link" href="{{ href }}" data-i18n="{{ tag }}">{{ tag }}</a>
                 {% endunless %}
             {% endfor %}
             </div>

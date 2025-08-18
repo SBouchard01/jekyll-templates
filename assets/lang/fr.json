@@ -56,5 +56,10 @@
     "Subject": "Sujet",
     "Message": "Message",
     "Submit": "Envoyer",
-    "Cancel": "Annuler"
+    "Cancel": "Annuler",
+
+    "Tags:": "Tags :",
+    "some tag": "un tag",
+    "some other tag": "un autre tag"
+    
 }

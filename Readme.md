@@ -164,7 +164,8 @@ categories: ["en", "tag2"] # The categories associated with the post. One of the
 Post content goes here.
 ```
 
-> Categories are used to generate the blog archive pages, so they should be used to categorize posts. The `lang` label is used to display the correct language flag in the blog page.
+<a id="categorie-tags"></a>
+> Categories are used to generate the blog archive pages, so they should be used to categorize posts (including the translation filter). The `lang` label is used to display the correct language flag in the blog page.
 
 #### Static
 See [Translations](#languages--translations) for more information on how this collection is used to translate large sections of static content.
@@ -266,6 +267,9 @@ The data in the website is translated in 2 different ways :
 > The english content is encoded in the HTML files in the first case, and should always be provided in the _static collection files in the second case.
 
 For techincal reasons, the posts and collection pages *cannot* be translated and have instead a flag displayed to indicate the language of the content. 
+
+> Note : Posts ["collections tags"](#categorie-tags) (provided in the front matter) *can be translated* if provided as a key in the lang file. 
+> This translation will be displayed in the tag label, and in the filter archive page related to this tag.
 
 ### Adding a new language
 To add a new language to the website, follow these steps:
