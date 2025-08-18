@@ -21,6 +21,19 @@
 
         <p class="content">{{ post.excerpt }}</p>
 
+        {% if post.categories.size > 1 %}
+        <div class="tags">
+            <span class="is-size-7" data-i18n="Tags:">Tags: </span>
+            {% for tag in post.categories %}
+                {% unless tag == post.lang %}
+                    {% assign slug_tag = tag | slugify %}
+                    {% assign href = post.url | remove_first: '/' | split: '/' | first | append: '/' | append: slug_tag %}
+                    <a class="tag is-hoverable is-link" href="{{ href }}" data-i18n="{{ tag }}">{{ tag }}</a>
+                {% endunless %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
         {% if forloop.index < forloop.length %}<hr>{% endif %}
 
         {% endfor %}
