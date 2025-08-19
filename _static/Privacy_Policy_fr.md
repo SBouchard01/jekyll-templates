@@ -7,4 +7,4 @@ lang: fr
 
 Ceci est la politique de confidentialité en français
 
-<small class="is-size-7">Traduit à l'aide de ChatGPT, des erreurs peuvent subsister. - Le texte officiel s'appliquant est disponible en anglais.</small>
+<small class="is-size-7">Traduit à l'aide de ChatGPT, des erreurs peuvent subsister. - Le texte officiel s'appliquant est disponible en <a onclick="hideLanguageClasses('en')">anglais.</a></small>
