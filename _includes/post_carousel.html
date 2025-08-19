@@ -12,7 +12,7 @@
 <section class="section">
     <div class="container">
         <h2 class="title" data-i18n="{{ title }}">{{ title }}</h2>
-        <div class="columns hidden-scroll is-flex-wrap-nowrap is-vcentered" style="overflow-x: scroll">
+        <div class="columns custom-scroll is-flex-wrap-nowrap is-vcentered" style="overflow-x: scroll">
 
             {% for post in sorted_posts limit: post_nb %}
             {% assign url = post.url | remove_first: "/" %}
@@ -63,7 +63,7 @@
 
         </div>
 
-        <progress class="progress is-small is-hidden-mobile" value="100" max="100"></progress>
+        <!-- <progress class="progress is-small is-hidden-mobile" value="100" max="100"></progress> -->
 
     </div>
 </section>
