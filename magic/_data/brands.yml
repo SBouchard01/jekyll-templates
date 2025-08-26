@@ -1,0 +1,12 @@
+- name: Netflix
+  logo: assets/img/brands/netflix.png
+  url: https://www.netflix.com
+- name: Apple
+  logo: assets/img/brands/apple.png
+  is_dark: true
+  url: https://www.apple.com
+- name: Coca-Cola
+  logo: assets/img/brands/coca-cola.png
+  url: https://www.coca-cola.com
+- name: Magic Dream
+  logo: assets/img/brands/magic-dream.png

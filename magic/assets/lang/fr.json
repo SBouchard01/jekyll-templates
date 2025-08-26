@@ -1,0 +1,94 @@
+{
+    "lang": "Français",
+    "Booking-Contact": "Réservation / Contact",
+
+    "Menu": "Menu",
+    "Home": "Accueil",
+    "About": "À propos",
+    "Contact": "Contact",
+    "Shop": "Boutique",
+
+    "Home title": "Titre",
+    "Home subtitle": "Sous-titre",
+
+    "Book a show": "Obtenir un devis",
+    "View events": "Futurs événements",
+
+    "About me": "À propos de moi",
+    "Prestations": "Prestations",
+
+    "Business events": {
+        "title": "Événements d'entreprise",
+        "description": "Des spectacles de magie sur mesure pour vos événements professionnels."
+    },
+    "Private events": {
+        "title": "Événements privés",
+        "description": "Une expérience magique personnalisée pour vos mariages, anniversaires et autres occasions spéciales."
+    },
+    "Close-up Magic": {
+        "title": "Magie de proximité",
+        "description": "Des tours de magie impressionnants réalisés à quelques centimètres de vous."
+    },
+    "Stage Shows": {
+        "title": "Spectacles de scène",
+        "description": "Des performances magiques éblouissantes sur scène pour les théâtres et évènements à grande échelle."
+    },
+    "Children's Parties": {
+        "title": "Anniversaires d'enfants",
+        "description": "Des spectacles de magie amusants et interactifs pour les fêtes d'anniversaire des enfants."
+    },
+    "Digital Magic": {
+        "title": "Magie digitale",
+        "description": "Une magie performée sur des téléphones et autres outils électroniques."
+    },
+
+    "Customer reviews": "Avis clients",
+
+    "They trust me": "Ils me font confiance",
+    "Brands who chose my services": "Marques qui ont choisi mes services",
+
+    "Magic with numbers:": "Ma magie avec des nombres :",
+    "Years of practice": "Années de pratique",
+    "Events performed": "Événements réalisés",
+    "Client satisfaction": "Clients satisfaits",
+    "Google reviews": "Avis Google",
+
+    "Contact me": "Contactez-moi",
+    "Add a touch of magic to your events!": "Ajoutez une touche de magie à vos événements!",
+
+    "Name *": "Nom *",
+    "Email *": "E-mail *",
+    "Message *": "Message *",
+    "Phone number": "Numéro de téléphone",
+    "Event type": "Type d'événement",
+    "Select an option": "Sélectionnez une option",
+    "Date": "Date",
+    "This field is mandatory": "Ce champ est obligatoire",
+    "Submit": "Envoyer",
+
+    "Contact information": "Informations de contact",
+    "Email": "E-mail",
+    "Responsiveness guarantee": "Garantie de réactivité",
+    "Guarantee content": "Je m'engage à répondre à toutes les demandes dans un délai de 24 heures.",
+    "Social": "Réseaux sociaux",
+    "Social footer": "Découvrez mes performances et coulisses sur les réseaux sociaux",
+
+    "Gallery": "Galerie",
+    "Photo by": "Photo par",
+
+
+
+    "Upcoming Shows and Events": "Prochains spectacles et événements",
+    "Book": "Réserver",
+    "Coming Soon": "À venir",
+    "Full": "Complet",
+
+    "Shop subtitle": "Procurez-vous des articles magiques que j'ai créés !",
+    "Direct sale": "Vente directe",
+    "Direct sale message": "Ce produit est une vente directe. Envoyez-moi un message si vous êtes intéressé !",
+    "Get in touch": "Contactez-moi",
+    "Customer Reviews": "Avis clients",
+    "Out of stock": "Rupture de stock",
+    "Pre-order": "Précommande",
+    "Buy now": "Acheter"
+}

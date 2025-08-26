@@ -1,0 +1,36 @@
+title: Simon Bouchard
+footer: "© 2025 Simon Bouchard. All rights reserved."
+
+css_theme: dark
+
+baseurl: /templates/magic
+
+collections:
+  tour:
+  reviews:
+  products:
+    output: true
+    permalink: shop/products/:path/
+
+defaults:
+- scope:
+    path: ""
+    type: "products"
+  values:
+    layout: "product"
+
+jekyll-archives:
+  products:
+    enabled:
+      - categories
+    layout: shop
+    permalinks:
+      categories: shop/:collection/:name/
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-archives-v2
+
+exclude:
+  - README.md
+  - LICENSE

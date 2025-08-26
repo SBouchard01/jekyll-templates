@@ -1,0 +1,18 @@
+- title: Business events
+  icon: "fas fa-briefcase"
+  description: "Professional magic shows tailored for corporate events and gatherings."
+- title: Private events
+  icon: "fas fa-users"
+  description: "Personalized magic performances for weddings, birthdays, and special occasions."
+- title: "Close-up Magic"
+  icon: "fas fa-magnifying-glass"
+  description: "Intimate magic performances that happen right before your eyes."
+- title: "Stage Shows"
+  icon: "fas fa-theater-masks"
+  description: "Large-scale performances perfect for theaters and big events."
+- title: "Children's Parties"
+  icon: "fas fa-child"
+  description: "Fun and interactive magic shows designed for kids."
+- title: "Digital Magic"
+  icon: "fas fa-mobile-button"
+  description: "Magic performed on digital devices, borrowed or not."
