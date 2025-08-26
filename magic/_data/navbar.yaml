@@ -1,0 +1,9 @@
+- name: Home
+  url: index.html
+- name: About
+  url: index.html/#about
+- name: logo
+- name: Contact
+  url: index.html/#contact
+- name: Shop
+  url: shop

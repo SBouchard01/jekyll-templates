@@ -1,0 +1,12 @@
+- value: 25+
+  name: Years of practice
+  icon: fa-trophy
+- value: 2500+
+  name: Events performed
+  icon: fa-calendar
+- value: 100%
+  name: Client satisfaction
+  icon: fa-smile
+- value: 80+
+  name: Google reviews
+  icon: fa-message
