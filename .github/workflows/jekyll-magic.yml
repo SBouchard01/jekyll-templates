@@ -54,10 +54,12 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic" --destination "./_site/magic"
         env:
           JEKYLL_ENV: production
+      - run: ls -la
+      - run: pwd
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site/magic
+          publish_dir: ./_site
           destination_dir: magic
       
