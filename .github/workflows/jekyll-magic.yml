@@ -55,6 +55,8 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic"
         env:
           JEKYLL_ENV: production
+      - name: test
+        run: ls -la
       - name: Upload artifact
         with:
           path: ./_site/magic
