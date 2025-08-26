@@ -1,0 +1,99 @@
+:root {
+    --bulma-scheme-h: 148;
+    --bulma-scheme-s: 45%;
+    --bulma-link-h: 45;
+    --bulma-link-s: 100%;
+    --bulma-link-l: 40%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.pop-up {
+    position: fixed;
+    bottom: -50%; 
+    z-index: 1000;
+    -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pop-up.left {
+    bottom: 2%;
+    left: 2%;
+}
+
+.pop-up.is-active {
+    bottom: 2%;
+}
+
+.scroll-to-top {
+    right: 2%; 
+    width: 50px;
+    height: 50px;
+}
+
+::-webkit-datetime-edit {
+    cursor: text;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.link-on-hover:hover {
+    color: var(--bulma-link);
+    cursor: pointer;
+}
+
+.product .card-content {
+    overflow: hidden;
+    position: relative;
+}
+
+.product:hover .price {
+    visibility: hidden;
+    transition: visibility 0.1s;
+}
+
+.product .price span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto 0.5ch;
+}
+
+.product .button {
+    display: flex;
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    width: fit-content;
+    transform: translateX(-50%);
+}
+
+.product:hover .button {
+    bottom: 10%;
+    transition: bottom 0.4s cubic-bezier(0.51, 0.51, 0, 1);
+}
+
+@media screen and (max-width: 1024px) {
+    .product .button {
+        position: relative;
+        transition: none;
+        margin-top: 10px;
+    }
+
+    .product:hover .price {
+        visibility: visible;
+        transition: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+    }
+}
