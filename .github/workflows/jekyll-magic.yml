@@ -51,15 +51,13 @@ jobs:
       - name: Bundle install
         run: bundle install
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic"
+        # Outputs to the './_site/magic' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic" --destination "./_site/magic"
         env:
           JEKYLL_ENV: production
       - name: test
         run: ls -la
       - name: Upload artifact
-        with:
-          path: ./_site/magic
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
 
