@@ -54,9 +54,6 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic" --destination "./_site/magic"
         env:
           JEKYLL_ENV: production
-      - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
