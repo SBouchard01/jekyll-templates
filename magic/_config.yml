@@ -8,6 +8,8 @@ baseurl: /templates/magic
 collections:
   tour:
   reviews:
+  static:
+    sort_by: lang
   products:
     output: true
     permalink: shop/products/:path/

@@ -156,7 +156,30 @@ To add a language, add the following in the `lang.yml` file:
   name: "English"
 ```
 
+> Note: The translation fallback is always the default language (English), trough the HTML content,
+> or the translated section. Make sure to always provide those.
+
 Then, you can add the translations in `assets/lang/en.json` file, following the structure of the other translation files.
 The keys are set in the HTML code, and if you need to add a new key, make sure to also add it in the translation files.
 
 > Tip : If you want to check which sections are not translated, the console will show the translation keys that were not found at page load.
+
+It also includes a method to translate bigger text blocks, by creating markdown files in the `_static` directory.
+The file should contain the following content:
+
+```yaml
+---
+lang: en # Language code
+name: Some unique name for that section
+---
+The translated content goes here
+```
+
+The same file should be created for each translation. To add this content in a page, we use the following syntax:
+
+```liquid
+{% include static_translations.html name = "Some unique name for that section" %}
+```
+
+> This will create a hidden section for each language with the translated content inside. 
+> The language selection functions will un-hide the corresponding section based on the selected language.
