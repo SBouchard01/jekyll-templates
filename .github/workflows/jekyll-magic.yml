@@ -36,6 +36,8 @@ jobs:
       run:
         working-directory: ./magic
     steps:
+      - run: pwd
+      - run: ls -la
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
@@ -48,15 +50,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Bundle install
-        run: bundle install
       - name: Build with Jekyll
         # Outputs to the './_site/magic' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}/magic" --destination "./_site/magic"
         env:
           JEKYLL_ENV: production
-      - run: ls -la ./_site
-      - run: pwd
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
