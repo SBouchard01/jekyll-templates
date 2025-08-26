@@ -60,7 +60,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ./magic
-          publish_dir: ./_site
+          publish_dir: ./magic/_site
           destination_dir: magic
       
