@@ -264,12 +264,14 @@ The data in the website is translated in 2 different ways :
   - To avoid recursive loading hell, please do not include static translations in static translations files.
 
 
+> [!IMPORTANT]
 > English is always the fallback of the translations, so if a translation is not available in the selected language, the English version will be displayed instead.
 > The english content is encoded in the HTML files in the first case, and should always be provided in the _static collection files in the second case.
 
 For techincal reasons, the posts and collection pages *cannot* be translated and have instead a flag displayed to indicate the language of the content. 
 
-> Note : Posts ["collections tags"](#categorie-tags) (provided in the front matter) *can be translated* if provided as a key in the lang file. 
+> [!NOTE]
+> Posts ["collections tags"](#categorie-tags) (provided in the front matter) *can be translated* if provided as a key in the lang file. 
 > This translation will be displayed in the tag label, and in the filter archive page related to this tag.
 
 ### Adding a new language
@@ -285,7 +287,8 @@ To add a new language to the website, follow these steps:
 4. Add a flag (from the [Twemoji cheatsheet website](https://twemoji-cheatsheet.vercel.app/)) to represent the new language in `assets/img/lang/`. This has to be a PNG file with the same name as the language code (e.g., `de.png` for German).
 5. [Optional] If you want to add translations for the static content, create a new file in the `_static` collection with the language code as a suffix (e.g., `terms_de.md` for the German translation of the terms page) for each file you want to translate. The front matter should include the `name` and `lang` keys as described above.
 
-> Tip : You can inspect all pages with the web console open, a warning will be displayed in the console if a translation is missing for a static element. This will help you identify any missing translations in the JSON file.
+> [!TIP]
+> You can inspect all pages with the web console open, a warning will be displayed in the console if a translation is missing for a static element. This will help you identify any missing translations in the JSON file.
 
 ## Host on GitHub Pages
 The template contains a working GitHub Actions workflow to build and deploy the site to GitHub Pages.
@@ -294,3 +297,19 @@ This workflow is located in `.github/workflows/jekyll.yml` and will automaticall
 If pushing to a repository instead of a root website, you will need to set the `baseurl` in `_config.yml` to the name of the repository (e.g., `/desi_template`). Do not add the trailing slash, it will be added in the head of the pages automatically.
 
 > Github pages seems to remove the trailing slash from `site.baseurl` so I fixed it that way
+
+
+## Note to self
+> [!CAUTION]
+> This template is hosted in two repositories : https://github.com/sbouchard01/jekyll-templates and https://github.com/sbouchard01/desi-template
+
+> [!IMPORTANT]
+> Make sure to keep both repositories in sync when making changes, by using [`git subtree`](https://git-scm.com/docs/git-subtree):
+> 
+> ```bash
+> git checkout desi
+> git subtree [pull/push] --prefix desi https://github.com/sbouchard01/desi-template.git main
+> ```
+
+> [!NOTE]
+> When pushing to the `desi_template` repository from the `jekyll-templates` repository, push to the `external` branch instead to allow PR to merge properly later
