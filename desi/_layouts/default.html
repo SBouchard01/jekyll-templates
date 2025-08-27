@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top" data-theme="{{ site.css_theme }}">
+
+{% include head.html %}
+
+<body>
+{% include navbar.html page_number=paginator.page %}
+
+{{ content }}
+
+
+{% include footer.html %}
+</body>
+</html>

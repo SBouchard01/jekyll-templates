@@ -1,0 +1,139 @@
+{% assign url = page.url | remove_first: '/' | remove: "index.html" %}
+{% if include.page_number %}
+    {% assign to_remove = include.page_number | append: "/" %}
+    {% assign url = url | replace: to_remove, "" %}
+{% endif %}
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item is-family-monospace has-text-weight-bold is-size-5" href="./">
+                <img class="only-on-dark navbar-logo" src="assets/img/logos/logo_dark.png" alt="Logo">
+                <img class="only-on-light navbar-logo" src="assets/img/logos/logo_light.png" alt="Logo">
+                {% if site.navbar_title %}
+                    {{ site.navbar_title }}
+                    &nbsp;
+                {% endif %}
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-divider"></div>
+
+        <div class="navbar-menu" id="navbarMenu">
+            <div class="navbar-start">
+                {% for item in site.data.navbar_links %}
+                {% if item.dropdown %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link {% if url == item.url %} has-text-primary {% endif %}" href="{{ item.url }}" data-i18n="{{ item.name }}">
+                        {{ item.name }}
+                    </a>
+                    <div class="navbar-dropdown">
+                        {% for subitem in item.dropdown %}
+                        <a class="navbar-item {% if url == subitem.url %} has-text-primary {% endif %}" href="{{ subitem.url }}" data-i18n="{{ subitem.name }}">
+                            {{ subitem.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <a class="navbar-item {% if url == item.url %} has-text-primary {% endif %}" href="{{ item.url }}" data-i18n="{{ item.name }}">
+                    {{ item.name }}
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        {% for item in site.data.navbar_buttons %}
+                        <a class="button {{ item.color }}" href="{{ item.url }}" data-i18n="{{ item.name }}">{{ item.name }}</a>
+                        {% endfor %}
+                        {% if site.show_theme_switcher %}
+                        <a class="button is-light only-on-light" id="theme-switcher" onclick="toggleTheme()">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-sun"></i>
+                            </span>
+                        </a>
+                        <a class="button is-dark only-on-dark" id="theme-switcher" onclick="toggleTheme()">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-moon"></i>
+                            </span>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div> 
+
+                {% unless site.show_language_switcher %}
+                    {% assign is-hidden = "is-hidden" %}
+                {% endunless %}
+                {% if site.language_switcher_list %}
+                    {% assign is-modal = "is-hidden" %}
+                {% else %}
+                    {% assign is-list = "is-hidden" %}
+                {% endif %}
+                <!-- Language selection menu as list -->
+                <hr class="is-hidden-desktop">
+                <div class="navbar-item has-dropdown is-hoverable {{ is-hidden }} {{ is-list }}">
+                    <a class="navbar-link">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-language"></i> 
+                            </span>
+                            <span class="is-hidden-desktop">
+                                &nbsp; <span data-i18n="Language">Language</span>
+                            </span>
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        {% for item in site.data.lang %}
+                        <a class="navbar-item" onclick="changeLanguage('{{ item.code }}')">{{ item.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Language selection  as modal -->
+                <a class="navbar-item js-modal-trigger {{ is-hidden }} {{ is-modal }}" data-target="modal-language">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-lg fa-language"></i> 
+                        </span>
+                        <span class="is-hidden-desktop">
+                            &nbsp; <span data-i18n="Language">Language</span>
+                        </span>
+                    </span>
+                </a>
+
+                <div class="modal" id="modal-language">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">
+                                <span class="icon">
+                                    <i class="fa-solid fa-lg fa-language"></i>
+                                </span>
+                                &nbsp; <span data-i18n="Select a language">Select a language</span>
+                            </p>
+                            <button class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <div>
+                            {% for item in site.data.lang %}
+                                <a class="navbar-item" onclick="changeLanguage('{{ item.code }}')">{{ item.name }}</a>
+                            {% endfor %}
+                            </div> 
+                        </section>
+                        <footer class="modal-card-foot"></footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+

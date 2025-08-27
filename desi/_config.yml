@@ -1,0 +1,91 @@
+# Site configuration
+title: "DESI Website Template"
+description: "A Jekyll template for the DESI project, featuring a clean design and easy navigation."
+
+# navbar/footer configuration
+# navbar_title: "DESI"
+show_language_switcher: true
+language_switcher_list: true # Set to false to display language as a modal
+show_theme_switcher: true # Disable to fix the theme to light or dark
+footer: "© 2023 DESI Collaboration. All rights reserved."
+license: "https://opensource.org/license/bsd-3-clause"
+# Redefine navbar height in assets/css/bulma_custom.css if needed
+
+# Use this to set the website color theme (light or dark)
+css_theme: light
+# Redefine primary colors in assets/css/bulma_custom.css if needed
+
+# Useful links
+links:
+  email: mailto:email@example.com
+
+# Use this if you deploy to a subdirectory, e.g. /desi_template, with no trailing slash
+baseurl: /desi_template
+
+# Pagination & Collections setup
+collections:
+  faq:
+  team:
+    output: true
+    permalink: team/:path/
+  static:
+    sort_by: lang
+  partners:
+    output: true
+    permalink: partners/:path/
+  posts:
+    output: true
+    permalink: blog/:year/:month/:day/:title/
+
+pagination:
+  enabled: true
+  per_page: 5
+  sort_reverse: true
+  permalink: /:num/
+  title: ':title - page :num of :max'
+
+# Use this to have the archives plugin generate archives for posts, news, and events
+# Unfortunately, not compatible with jekyll-paginate-v2
+jekyll-archives:
+  posts:
+    enabled:
+      - year
+      - month
+      - day
+      - categories
+    layout: archive
+    permalinks:
+      year: blog/:year/
+      month: blog/:year/:month/
+      day: blog/:year/:month/:day/
+      categories: blog/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "partners"
+    values:
+      layout: "partner"
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Jekyll setup
+plugins:
+  - jekyll-paginate-v2
+  - jekyll-archives-v2
+
+exclude:
+  - Readme.md
+  - LICENSE

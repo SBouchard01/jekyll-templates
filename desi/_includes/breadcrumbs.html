@@ -1,0 +1,60 @@
+<div class="level">
+{% assign size = include.size | default: "is-small" %}
+<nav class="breadcrumb {{ size }}">
+    <ul>
+        <!-- Quick-fix for markdown layout that includes content in a "content" div which moves stuff around -->
+        {% if include.is_md %}
+        <li></li>
+        {% endif %}
+
+        {% if include.back %}
+        <li>
+            <a href="javascript:window.history.back();"  style="align-items: center;">
+                <span class="icon {{ size }}">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+                <span data-i18n="Back">Back</span>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if include.home %}
+        <li>
+            <a href="">
+                <span class="icon {{ size }}">
+                    <i class="fas fa-home"></i>
+                </span>
+            </a>
+        </li>
+        {% endif %}
+        {% if include.breadcrumbs %}
+            {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+            {% for crumb in crumbs offset: 1 %}
+
+                <!-- Figure out the path of each crumb -->
+                {% assign crumb_limit = forloop.index | plus: 1 %}
+                {% assign goto = "" %}
+                {% for crumb_loop in crumbs limit: crumb_limit %}
+                    {% assign goto = goto | append: crumb_loop | append: '/' %}
+                {% endfor %}
+                {% assign goto = goto | remove_first: '/' %}
+                {% assign goto = goto | replace: '.html/', '.html' %}
+
+                {% if forloop.last %}
+                <li class="is-active">
+                    <a href="{{ goto }}" aria-current="page">
+                        {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
+                    </a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{ goto }}">
+                        {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
+                    </a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </ul>
+</nav>
+</div>

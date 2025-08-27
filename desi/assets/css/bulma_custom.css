@@ -1,0 +1,56 @@
+
+:root {
+  --bulma-navbar-height: 6rem;
+}
+
+.navbar {
+    --bulma-navbar-burger-color: var(--bulma-primary);
+    --bulma-navbar-dropdown-arrow: var(--bulma-primary);
+}
+
+.navbar-brand .navbar-item {
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.navbar-logo {
+    width: auto !important;
+    height: var(--bulma-navbar-height) !important;
+    max-height: var(--bulma-navbar-height) !important;
+}
+
+.hidden-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.underlined_on_hover:hover {
+    text-decoration: underline;
+}
+
+.custom-scroll{
+    padding-bottom: var(--bulma-control-padding-vertical);
+}
+
+.custom-scroll::-webkit-scrollbar {
+    height: var(--bulma-size-small);
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: var(--bulma-border-weak);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: var(--bulma-radius-rounded);
+    background: var(--bulma-text); 
+}
+
+.custom-scroll::-webkit-scrollbar-button {
+    width: var(--bulma-column-gap);
+}
+
+@media screen and (max-width: 768px) {
+    .custom-scroll::-webkit-scrollbar {
+        display: none;
+    }
+}
