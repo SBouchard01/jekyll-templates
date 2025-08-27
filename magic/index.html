@@ -334,7 +334,7 @@ title: Magic
                             <p class="has-text-weight-bold mb-2" data-i18n="Social">Social</p>
                             {% for social in site.data.social %}
                                 {% if social.magic %}
-                                <a class="button is-hovered mr-2" href="{{ social.url }}">
+                                <a class="button is-hovered mr-2" href="{{ social.url }}" target="_blank" title="{{ social.name }}">
                                     <span class="icon">
                                         <i class="fab {{ social.icon }}"></i>
                                     </span>
