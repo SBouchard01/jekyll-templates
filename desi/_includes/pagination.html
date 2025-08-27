@@ -1,0 +1,111 @@
+{% assign size = include.size | default: "is-small" %}
+{% assign hide_1 = include.hide_1 | default: false %}
+
+{% unless paginator.total_pages == 1 and hide_1 %}
+{% if paginator.total_pages %}
+<nav class="pagination is-centered {{ size }}" role="navigation">
+    {% if paginator.previous_page %}
+        <a class="pagination-previous" href="{{ paginator.previous_page_path }}">
+            <span class="icon {{ size }}"><i class="fas fa-chevron-left"></i></span>
+            <span data-i18n="Previous">Previous</span>
+        </a>
+    {% else %}
+        <span class="pagination-previous is-disabled" aria-disabled="true">
+            <span class="icon {{ size }}"><i class="fas fa-chevron-left"></i></span>
+            <span data-i18n="Previous">Previous</span>
+        </span>
+    {% endif %}
+
+    {% if paginator.next_page %}
+        <a class="pagination-next" href="{{ paginator.next_page_path }}">
+            <span data-i18n="Next">Next</span>
+            <span class="icon {{ size }}"><i class="fas fa-chevron-right"></i></span>
+        </a>
+    {% else %}
+        <span class="pagination-next is-disabled">
+            <span data-i18n="Next">Next</span>
+            <span class="icon {{ size }}"><i class="fas fa-chevron-right"></i></span>
+        </span>
+    {% endif %}
+
+    <ul class="pagination-list">
+        {% assign display_number = include.display_number | default: 5 %} 
+        {% assign total_pages = paginator.total_pages %} <!-- paginator.total_pages-->
+        {% assign current_page = paginator.page %} <!-- paginator.page-->
+        {% assign last_number = total_pages | minus: display_number %}
+        {% assign half_interval = display_number | divided_by: 2 %}
+        {% assign interval_low = current_page | minus: half_interval %}
+        {% assign interval_high = current_page | plus: half_interval %}
+
+        {% assign page_root = paginator.first_page_path %}
+
+        {% for page in (1..total_pages) %}
+            {% if total_pages > display_number %}
+
+                <!-- Pagination for first N pages -->
+                {% if current_page <= display_number %}
+                    {% if forloop.index <= display_number %}
+                        {% if page == current_page %}
+                            <li class="pagination-link is-current"><span>{{ page }}</span></li>
+                        {% elsif page == 1 %}
+                            <li><a class="pagination-link" href="{{ page_root }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a class="pagination-link" href="{{ page_root | append: page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% else %}
+                        <li><span class="pagination-ellipsis">&hellip;</span></li>
+                        <li><a class="pagination-link" href="{{ page_root | append: total_pages }}">{{ total_pages }}</a></li>
+                        {% break %}
+                    {% endif %}
+                        
+                {% elsif current_page > last_number %}
+
+                    <!-- Pagination for last N pages -->
+                    {% if forloop.index == last_number %}
+                        <li><a class="pagination-link" href="{{ page_root }}">1</a></li>
+                        <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    {% elsif forloop.index >= last_number %}
+                        {% if page == current_page %}
+                            <li class="pagination-link is-current"><span>{{ page }}</span></li>
+                        {% elsif page == 1 %}
+                            <li><a class="pagination-link" href="{{ page_root }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a class="pagination-link" href="{{ page_root | append: page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endif %}
+
+                {% else %}
+                    
+                    {% if forloop.index == 1 %}
+                        <li><a class="pagination-link" href="{{ page_root }}">1</a></li>
+                        <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    {% elsif forloop.index >= interval_low and forloop.index <= interval_high %}
+                        {% if page == current_page %}
+                            <li class="pagination-link is-current"><span>{{ page }}</span></li>
+                        {% elsif page == 1 %}
+                            <li><a class="pagination-link" href="{{ page_root }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a class="pagination-link" href="{{ page_root | append: page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% elsif forloop.index == total_pages %}
+                        <li><span class="pagination-ellipsis">&hellip;</span></li>
+                        <li><a class="pagination-link" href="{{ page_root | append: total_pages }}">{{ total_pages }}</a></li>
+                    {% endif %}
+
+
+                {% endif %}
+            {% else %}
+                <!-- Pagination if less than N pages -->
+                {% if page == paginator.page %}
+                    <li class="pagination-link is-current"><span>{{ page }}</span></li>
+                {% elsif page == 1 %}
+                    <li><a class="pagination-link" href="{{ page_root }}">{{ page }}</a></li>
+                {% else %}
+                    <li><a class="pagination-link" href="{{ page_root | append: page }}">{{ page }}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endunless %}

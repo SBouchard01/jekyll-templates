@@ -1,0 +1,82 @@
+---
+title: "About"
+layout: default
+permalink: legacy/
+pagination: 
+    enabled: true
+    collection: team
+    tag: legacy
+    sort_reverse: false
+    sort_field: 'name'
+---
+
+<section class="section">
+    <div class="container">
+        {% include breadcrumbs.html back=true %}
+        <div class="content">
+            <h1 data-i18n="Legacy members">Legacy members</h1>
+            <p data-i18n="Legacy members 1">
+                Legacy members introduction.
+            </p>
+        </div>
+
+        <div class="content">            
+            {% assign placeholder_img = "https://bulma.io/assets/images/placeholders/128x128.png" %}
+            {% for member in paginator.posts %}
+            {% if member.surname %}
+                {% assign name = member.surname | append: " " | append: member.name %}
+            {% else %}
+                {% assign name = member.name %}
+            {% endif %}
+            <hr>
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64">
+                        <img class="is-rounded" src="{{ member.image | default: placeholder_img }}" alt="{{ name }}" style="max-width: 64px; max-height: 64px; object-fit: cover;">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        {% if member.content.size > member.excerpt.size %}
+                        <h3>    
+                            <a href="{{ member.url }}" class="underlined_on_hover">
+                                <p class="title is-4">{{ name }}</p>
+                            </a>
+                            <p class="subtitle is-7">{{ member.location }}</p>
+                        </h3>
+                        {% else %}
+                            <h3>
+                                <p class="title is-4">{{ name }}</p>
+                                <p class="subtitle is-7">{{ member.location }}</p>
+                            </h3>
+                        {% endif %}
+                        <div data-i18n="team/{{ name }}">
+                            {{ member.excerpt | markdownify }}
+                        </div>
+                    </div>
+                    <div class="subtitle is-7">
+                        <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+                    </div>
+                </div>
+                <div class="media-right">
+                    <nav class="level is-mobile">
+                        <div class="level-right">
+                            {% for social in member.social %}
+                            <span class="icon is-medium">
+                                <a class="has-text-text" href="{{ social.url }}" target="_blank">
+                                    {% assign brand_icon = "fa-brands fa-" | append: social.name %}
+                                    {% assign fa_icon = social.icon | default: brand_icon %}
+                                    <i class="fa-lg {{ fa_icon }}"></i>
+                                </a>
+                            </span>    
+                            {% endfor %}
+                        </div>
+                    </nav>
+                </div>
+            </article>
+            {% endfor %}
+            <hr>
+        </div>
+        {% include pagination.html hide_1=true %}
+    </div>
+</section>

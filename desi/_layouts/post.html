@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="section">
+    {% include breadcrumbs.html breadcrumbs=true home=true size="is-medium" %}
+    <div class="container">
+        <div class="content">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+
+            <hr>
+
+            {{ content | markdownify }}
+        </div>
+        <div class="content">
+            {% if page.categories.size > 1 %}
+            <div class="tags">
+            <span class="is-size-7" data-i18n="Tags:">Tags: </span>
+            {% for tag in page.categories %}
+                {% unless tag == page.lang %}
+                    {% assign slug_tag = tag | slugify %}
+                    {% assign href = page.url | remove_first: '/' | split: '/' | first | append: '/' | append: slug_tag %}
+                    <a class="tag is-hoverable is-link" href="{{ href }}" data-i18n="{{ tag }}">{{ tag }}</a>
+                {% endunless %}
+            {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

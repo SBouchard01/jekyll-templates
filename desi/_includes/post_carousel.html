@@ -1,0 +1,69 @@
+{% assign title = include.title %}
+{% assign posts = include.posts %}
+{% assign post_nb = include.post_nb | default: 5 %}
+{% assign permalink = include.permalink %}
+{% assign sort = include.sort | default: "date" %}
+{% if include.reverse %}
+    {% assign sorted_posts = posts | sort: sort | reverse %}
+{% else %}
+    {% assign sorted_posts = posts | sort: sort %}
+{% endif %}
+
+<section class="section">
+    <div class="container">
+        <h2 class="title" data-i18n="{{ title }}">{{ title }}</h2>
+        <div class="columns custom-scroll is-flex-wrap-nowrap is-vcentered" style="overflow-x: scroll">
+
+            {% for post in sorted_posts limit: post_nb %}
+            {% assign url = post.url | remove_first: "/" %}
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="columns">
+                            <div class="column">
+                                <p class="title is-4">{{ post.title }}</p>
+                            </div>
+                            <div class="column is-narrow">
+                                {% if post.lang %}
+                                <img src="assets/img/lang/{{ post.lang }}.png" alt="language flag" style="width: 20px;">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="subtitle is-6">{{ post.date | date_to_string }} {% if post.author %} - {{ post.author }}{% endif %}</p>
+                        <p class="content">{{ post.excerpt }}</p>
+                    </div>
+                    <a href="{{ url }}">
+                        <div class="card-footer has-text-link">
+                            <span class="card-footer-item" data-i18n="Read more">Read more</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        
+            {% if permalink %}
+            <div class="column is-one-fifth">
+                <a class="card" href="{{ permalink }}">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="content">
+                                <p class="has-text-link has-background-dark only-on-dark" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%;">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </p>
+                                <p class="has-text-link has-background-light only-on-light" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%;">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </p>
+                                <p class="title is-5" data-i18n="See more">See more</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <!-- <progress class="progress is-small is-hidden-mobile" value="100" max="100"></progress> -->
+
+    </div>
+</section>

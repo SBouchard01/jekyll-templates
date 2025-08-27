@@ -1,0 +1,54 @@
+{% assign title = include.title %}
+{% assign subtitle = include.subtitle %}
+{% assign hero_size = include.hero_size %}
+
+{% assign hero_image = include.hero_image | default: "assets/img/hero_bg.jpg" %}
+{% assign darken = include.darken | default: "0" %}
+{% assign blur = include.blur | default: "0" %}
+{% assign background_color = "rgba(0, 0, 0, "  | append: darken | append: ");" %}
+{% assign background_blur = "blur(" | append: blur | append: "px)" %}
+
+{% if include.page_number %}
+    {% assign page_number = include.page_number %}
+{% else %}
+    {% assign page_number = 1 %}
+{% endif %}
+
+{% assign url = page.url | remove_first: '/' | remove: "index.html" %}
+{% if include.page_number %}
+    {% assign to_remove = include.page_number | append: "/" %}
+    {% assign url = url | replace: to_remove, "" %}
+{% endif %}
+{% for lang in site.data.lang %}
+    {% assign to_remove = lang.code | append: "/" %}
+    {% assign url = url | replace: to_remove, "" %}
+{% endfor %}
+
+<!-- https://github.com/jgthms/bulma/issues/1007#issuecomment-1722779908 -->
+<div class="hero {{ hero_size }}" style="background-image: url('{{ hero_image }}'); background-position: center top; background-size: auto 100%;"> 
+    <div class="hero-body" style="background-color: {{ background_color }}; backdrop-filter: {{ background_blur }};">
+        <div class="container has-text-centered has-text-top">
+            <h1 class="title is-2 has-text-primary" data-i18n="{{ title }}">{{ title }}</h1>
+            <h2 class="subtitle has-text-white is-3" data-i18n="{{ subtitle }}">{{ subtitle }}</h2>
+        </div>
+    </div>
+    <div class="hero-foot" style="background-color: {{ background_color }}; backdrop-filter: {{ background_blur }};">
+        <nav class="tabs is-boxed">
+            <div class="container">
+                <ul>
+                    {% for item in site.data.home_tabs %}
+                    <li {% if url == item.url %} class="is-active" {% endif %}>
+                        <a href="{{ item.url }}" {% if url == item.url %} style="color: var(--bulma-primary);" {% endif %}> 
+                        <!-- TODO : override active tab link color in CSS instead ? -->
+                            <span class="icon is-small">
+                                <i class="{{ item.icon }}"></i>
+                            </span>
+                            <span data-i18n="{{ item.name }}">{{ item.name }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
