@@ -3,7 +3,8 @@ This template is a small static website template for magicians. It includes a sh
 
 This template is built with [Jekyll](https://jekyllrb.com/), with [Bulma](https://bulma.io/) as the CSS framework.
 
-> Note : No backend is implemented in this template (see [Shop](#shop) or [Tour](#tour))
+> [!NOTE]
+> No backend is implemented in this template (see [Shop](#shop) or [Tour](#tour))
 
 ## Collections
 Several elements can be easily added to the website using collections. Here are some examples:
@@ -42,7 +43,8 @@ Product description goes here.
 
 The file name should follow the format `DATE-product-name.md`. Otherwise, add a `title` field in the front matter.
 
-> Note : No backend is implemented to sell the products, handle payments or product management.
+> [!NOTE]
+> No backend is implemented to sell the products, handle payments or product management.
 > The link should point to an external product page or a relevant URL.
 > The direct sale option will open a dialog window that will redirect the user to the contact page.
 
@@ -67,7 +69,8 @@ The file name should follow the format `DATE-city.md`. Otherwise, add a `date` f
 
 If a field is not provided, it will not be displayed. Also, any past event will not be displayed (though they are only removed at website compilation !!)
 
-> Note : No backend is implemented to manage the tour dates or ticket sales.
+> [!NOTE]
+> No backend is implemented to manage the tour dates or ticket sales.
 > The link should point to an external page with more information about the tour.
 
 
@@ -131,7 +134,8 @@ To display images in the website gallery, add the following section in the `gall
   credit: "Name of the photographer or source"
 ```
 
-> Note : Only the first 20 pictures will be displayed in the gallery.
+> [!TIP]
+> Only the first 20 pictures will be displayed in the gallery.
 
 ### Social network links
 To add a social network, add the following section in the `social.yml` file:
@@ -156,7 +160,8 @@ To add a language, add the following in the `lang.yml` file:
   name: "English"
 ```
 
-> Note: The translation fallback is always the default language (English), trough the HTML content,
+> [!IMPORTANT]
+> The translation fallback is always the default language (English), trough the HTML content,
 > or the translated section. Make sure to always provide those.
 
 Then, you can add the translations in `assets/lang/en.json` file, following the structure of the other translation files.
