@@ -1,9 +1,7 @@
-title: Simon Bouchard
+title: Magic template
 footer: "© 2025 Simon Bouchard. All rights reserved."
 
 css_theme: dark
-
-baseurl: /templates/magic
 
 collections:
   tour:
