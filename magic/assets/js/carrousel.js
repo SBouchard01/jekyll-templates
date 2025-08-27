@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add event listeners for slide events on touch devices
         element.querySelectorAll('.slideshow').forEach(slideshow => {
             let allowedSwipeTime = 500;
-            let threshold = 200;
-            let restraint = 20;
+            let threshold = 50;
+            // let restraint = 20;
             slideshow.addEventListener('touchstart', (event) => {
                 slideshow.x = event.changedTouches[0].pageX;
                 slideshow.y = event.changedTouches[0].pageY;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const deltaY = event.changedTouches[0].pageY - slideshow.y;
                 const deltaT = new Date().getTime() - slideshow.t0;
                 if (deltaT <= allowedSwipeTime) {
-                    if (Math.abs(deltaX) >= threshold && Math.abs(deltaY) < restraint) {
+                    if (Math.abs(deltaX) >= threshold) { // Ignoring vertical swipe info: && Math.abs(deltaY) < restraint
                         slideshow.swipeDir = (deltaX < 0)? 'left' : 'right';
                         const direction = (deltaX < 0)? 1 : -1;
                         gotoSlide(element, element.current_slide + direction, manual = true);
