@@ -15,7 +15,7 @@ Live version:
 ### [DESI template](desi/README.md)
 A template for some [DESI](https://desi.lbl.gov/) websites.
 
-Live version:
+Live version: https://sbouchard01.github.io/jekyll-templates/desi/
 
 
 > Note : Due to the way github pages work, the 404 pages can't be displayed
