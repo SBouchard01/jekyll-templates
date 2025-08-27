@@ -8,7 +8,7 @@ A template for magicians, including a shop, contact info, customer reviews, and 
 Live version: https://sbouchard01.github.io/jekyll-templates/magic/
 
 ### [Science template](science/README.md)
-A template for a scientific staticv page and research, with cv, projects, etc.
+A template for a scientific static page and research, with cv, projects, etc.
 
 Live version:
 
