@@ -47,6 +47,10 @@ html {
     cursor: pointer;
 }
 
+.product {
+    height: 100%;
+}
+
 .product .card-content {
     overflow: hidden;
     position: relative;
