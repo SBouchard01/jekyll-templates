@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add event listeners for slide events on touch devices
         element.querySelectorAll('.slideshow').forEach(slideshow => {
             let allowedSwipeTime = 300;
-            let threshold = 150;
-            let restraint = 100;
+            let threshold = 200;
+            let restraint = 50;
             slideshow.addEventListener('touchstart', (event) => {
                 slideshow.x = event.changedTouches[0].pageX;
                 slideshow.y = event.changedTouches[0].pageY;
