@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESI Website Template</title>
+
+    <base href="/jekyll-templates/desi/"> 
+    
+    <link rel="icon" type="image/x-icon" href="assets/img/logos/favicon_solid.ico">
+    <link rel="icon" type="image/png" href="assets/img/logos/favicon_solid.png">
+    <link rel="shortcut icon" type="image/png" href="assets/img/logos/favicon_solid.png">
+    <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="assets/img/logos/favicon_solid.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/bulma_custom.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <script src="assets/js/bulma.js"></script>
+    <script src="assets/js/href.js"></script>
+    <script src="assets/js/lang.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/dropdown.js" defer></script>
+</head>
+
+<body>
+
+
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item is-family-monospace has-text-weight-bold is-size-5" href="./">
+                <img class="only-on-dark navbar-logo" src="assets/img/logos/logo_dark.png" alt="Logo">
+                <img class="only-on-light navbar-logo" src="assets/img/logos/logo_light.png" alt="Logo">
+                
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-divider"></div>
+
+        <div class="navbar-menu" id="navbarMenu">
+            <div class="navbar-start">
+                
+                
+                <a class="navbar-item " href="faq.html" data-i18n="FAQ">
+                    FAQ
+                </a>
+                
+                
+                
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link " href="https://desi.lbl.gov" data-i18n="Collaboration">
+                        Collaboration
+                    </a>
+                    <div class="navbar-dropdown">
+                        
+                        <a class="navbar-item " href="team" data-i18n="Team">
+                            Team
+                        </a>
+                        
+                        <a class="navbar-item " href="partners" data-i18n="Partners">
+                            Partners
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        
+                        <a class="button is-primary" href="/" data-i18n="Team Login">Team Login</a>
+                        
+                        
+                        <a class="button is-light only-on-light" id="theme-switcher" onclick="toggleTheme()">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-sun"></i>
+                            </span>
+                        </a>
+                        <a class="button is-dark only-on-dark" id="theme-switcher" onclick="toggleTheme()">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-moon"></i>
+                            </span>
+                        </a>
+                        
+                    </div>
+                </div> 
+
+                
+                
+                <!-- Language selection menu as list -->
+                <hr class="is-hidden-desktop">
+                <div class="navbar-item has-dropdown is-hoverable  ">
+                    <a class="navbar-link">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="fa-solid fa-lg fa-language"></i> 
+                            </span>
+                            <span class="is-hidden-desktop">
+                                &nbsp; <span data-i18n="Language">Language</span>
+                            </span>
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        
+                        <a class="navbar-item" onclick="changeLanguage('en')">English</a>
+                        
+                        <a class="navbar-item" onclick="changeLanguage('fr')">Français</a>
+                        
+                        <a class="navbar-item" onclick="changeLanguage('es')">Español</a>
+                        
+                    </div>
+                </div>
+
+                <!-- Language selection  as modal -->
+                <a class="navbar-item js-modal-trigger  is-hidden" data-target="modal-language">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-lg fa-language"></i> 
+                        </span>
+                        <span class="is-hidden-desktop">
+                            &nbsp; <span data-i18n="Language">Language</span>
+                        </span>
+                    </span>
+                </a>
+
+                <div class="modal" id="modal-language">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">
+                                <span class="icon">
+                                    <i class="fa-solid fa-lg fa-language"></i>
+                                </span>
+                                &nbsp; <span data-i18n="Select a language">Select a language</span>
+                            </p>
+                            <button class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <div>
+                            
+                                <a class="navbar-item" onclick="changeLanguage('en')">English</a>
+                            
+                                <a class="navbar-item" onclick="changeLanguage('fr')">Français</a>
+                            
+                                <a class="navbar-item" onclick="changeLanguage('es')">Español</a>
+                            
+                            </div> 
+                        </section>
+                        <footer class="modal-card-foot"></footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<section class="section">
+     
+        <div class="level">
+
+<nav class="breadcrumb is-medium">
+    <ul>
+        <!-- Quick-fix for markdown layout that includes content in a "content" div which moves stuff around -->
+        
+
+        
+
+        
+        <li>
+            <a href="">
+                <span class="icon is-medium">
+                    <i class="fas fa-home"></i>
+                </span>
+            </a>
+        </li>
+        
+        
+            
+            
+
+                <!-- Figure out the path of each crumb -->
+                
+                
+                
+                
+                
+
+                
+                <li>
+                    <a href="blog/">
+                        Blog
+                    </a>
+                </li>
+                
+            
+
+                <!-- Figure out the path of each crumb -->
+                
+                
+                
+                
+                
+
+                
+                <li>
+                    <a href="blog/2025/">
+                        2025
+                    </a>
+                </li>
+                
+            
+
+                <!-- Figure out the path of each crumb -->
+                
+                
+                
+                
+                
+
+                
+                <li>
+                    <a href="blog/2025/07/">
+                        07
+                    </a>
+                </li>
+                
+            
+
+                <!-- Figure out the path of each crumb -->
+                
+                
+                
+                
+                
+
+                
+                <li class="is-active">
+                    <a href="blog/2025/07/28/" aria-current="page">
+                        28
+                    </a>
+                </li>
+                
+            
+        
+    </ul>
+</nav>
+</div>
+    
+    <div class="container">
+        <div class="level">
+            <div class="level-left">
+                <div class="content">
+                    <h1>
+                        <span data-i18n="Posts archive">
+                            Posts archive
+                        </span> 
+                        - July 28, 2025  <span data-i18n=""> </span>
+                    </h1>
+                </div>
+            </div>
+            <div class="level-right">
+                
+            </div>
+        </div>
+
+        <div class="content">
+            <hr>
+                
+
+<div class="columns is-centered">
+    <div class="column is-four-fifths">
+
+        
+        <div class="columns">
+            <div class="column">
+                
+                <a href="blog/2025/07/28/post-2/" class="underlined_on_hover">
+                    <p class="title is-4">Post 2</p>
+                </a>
+                <p class="subtitle is-7">28 Jul 2025 - Auteur</p>
+            </div>
+            <div class="column is-narrow">
+                
+                <img src="assets/img/lang/fr.png" style="width: 30px;">
+                
+            </div>
+        </div>
+
+        <p class="content"><p>Aenean molestie ut velit eu commodo. Aenean nec posuere dolor, et blandit odio. Donec id tellus mauris. Aenean feugiat est urna, eu sagittis ante aliquam elementum. Proin quis sapien imperdiet leo sollicitudin consectetur. Cras pharetra in felis sed blandit. Aliquam risus magna, mattis quis tellus vitae, lacinia mollis metus. Sed vitae leo nulla. Donec volutpat rutrum nisl id eleifend. Donec pharetra vehicula mi, quis sollicitudin massa molestie id. Morbi tempus volutpat ante, nec sagittis odio.</p>
+</p>
+
+        
+        <div class="tags">
+            <span class="is-size-7" data-i18n="Tags:">Tags: </span>
+            
+                
+            
+                
+                    
+                    
+                    <a class="tag is-hoverable is-link" href="blog/some-tag" data-i18n="some tag">some tag</a>
+                
+            
+                
+                    
+                    
+                    <a class="tag is-hoverable is-link" href="blog/some-other-tag" data-i18n="some other tag">some other tag</a>
+                
+            
+        </div>
+        
+
+        
+
+        
+    </div>
+</div>
+            <hr>
+        </div>
+
+        <!-- Note : Pagination does not work with jekyll-archive -->
+
+    </div>
+</section>
+
+
+
+
+<footer class="footer">
+    <!-- <div class="container"> -->
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <a href="https://www.desi.lbl.gov/" target="_blank">
+                        <img class="only-on-dark" src="assets/img/logos/footer_logo_dark.png" alt="Logo" width="150px">
+                        <img class="only-on-light" src="assets/img/logos/footer_logo_light.png" alt="Logo" width="150px">
+                    </a>
+                    <!-- Not translated on purpose ? -->
+                    <p class="subtitle is-7">© 2023 DESI Collaboration. All rights reserved.</p>
+                </div>
+            </div>
+
+            <div class="level-item" id="social-icons">
+                
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="https://www.facebook.com/desisurvey/" target="_blank">
+                            <i class="fa-brands fa-lg fa-facebook"></i>
+                        </a>
+                    </span>    
+                </div>
+                
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="https://twitter.com/desisurvey/" target="_blank">
+                            <i class="fa-brands fa-lg fa-twitter"></i>
+                        </a>
+                    </span>    
+                </div>
+                
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="https://www.instagram.com/desisurvey/" target="_blank">
+                            <i class="fa-brands fa-lg fa-instagram"></i>
+                        </a>
+                    </span>    
+                </div>
+                
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                            <i class="fa-brands fa-lg fa-tiktok"></i>
+                        </a>
+                    </span>    
+                </div>
+                
+                <div class="level-item"> 
+                    <span class="icon is-medium">
+                        <a class="has-text-text" href="https://www.linkedin.com/in/dark-energy-spectroscopic-survey-4700b1318/" target="_blank">
+                            <i class="fa-brands fa-lg fa-linkedin"></i>
+                        </a>
+                    </span>    
+                </div>
+                
+            </div>
+
+            <div class="level-right">
+                <div class="level-item">
+                    <nav class="level"> 
+                                         
+                        <div class="level-item">
+                            <a class="has-text-text" href="terms.html" data-i18n="Terms & Privacy">Terms & Privacy</a>
+                        </div>
+                                         
+                        <div class="level-item">
+                            <a class="has-text-text" href="contact.html" data-i18n="Contact">Contact</a>
+                        </div>
+                                         
+                        <div class="level-item">
+                            <a class="has-text-text" href="credits.html" data-i18n="Credits">Credits</a>
+                        </div>
+                        
+                    </nav>
+                </div>
+                <span class="is-hidden-touch"> &nbsp;</span>
+                <a href="https://opensource.org/license/bsd-3-clause" target="_blank" class="level-item">
+                    <img src="assets/img/logos/copyright.png" alt="BSD 3-Clause License" width="100px">
+                </a>
+            </div>
+        </div>
+    <!-- </div> -->
+</footer>
+</body>
+</html>
