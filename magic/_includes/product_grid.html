@@ -37,10 +37,14 @@
                         {% assign trigger_class = "js-modal-trigger" %}
                         {% assign link = "javascript:void(0);" %}
                         {% assign target = "_self" %}
-                    {% else %}
+                    {% elsif product.link %}
                         {% assign trigger_class = "" %}
                         {% assign link = product.link %}
                         {% assign target = "_blank" %}
+                    {% else %}
+                        {% assign trigger_class = "" %}
+                        {% assign link = "javascript:void(0);" %}
+                        {% assign target = "_self" %}
                     {% endif %}
 
                     {% if product.out-of-stock %}
