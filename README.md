@@ -19,4 +19,4 @@ Live version: https://sbouchard01.github.io/jekyll-templates/desi/
 
 
 > [!NOTE]
-> Due to the way github pages work, the 404 pages can't be displayed
+> Due to the way github pages work, the 404 pages can't be displayed for each template, unless manually browsing to the `/404.html` URL in each template.
