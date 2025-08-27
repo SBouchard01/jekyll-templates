@@ -57,13 +57,15 @@ layout: magic
                         {% if page.link == "direct" %}
                             {% assign trigger_class = "js-modal-trigger" %}
                             {% assign link = "javascript:void(0);" %}
+                            {% assign target = "_self" %}
                         {% else %}
                             {% assign trigger_class = "" %}
                             {% assign link = page.link %}
+                            {% assign target = "_blank" %}
                         {% endif %}
                         
                         {% if page.out-of-stock %}
-                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" disabled>
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}" disabled>
                             <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                                 <span class="icon">
                                     <i class="fas fa-box"></i>
@@ -72,7 +74,7 @@ layout: magic
                             </span>
                         </a>
                         {% elsif page.preorder %}
-                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}">
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
                             <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                                 <span class="icon is-medium">
                                     <i class="far fa-clock"></i>
@@ -81,7 +83,7 @@ layout: magic
                             </span>
                         </a>
                         {% else %}
-                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}">
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
                             <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                                 <span class="icon">
                                     <i class="fas fa-basket-shopping"></i>

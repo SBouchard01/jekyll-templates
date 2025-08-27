@@ -36,13 +36,15 @@
                     {% if product.link == "direct" %}
                         {% assign trigger_class = "js-modal-trigger" %}
                         {% assign link = "javascript:void(0);" %}
+                        {% assign target = "_self" %}
                     {% else %}
                         {% assign trigger_class = "" %}
                         {% assign link = product.link %}
+                        {% assign target = "_blank" %}
                     {% endif %}
 
                     {% if product.out-of-stock %}
-                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" disabled>
+                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}" disabled>
                         <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                             <span class="icon">
                                 <i class="fas fa-box"></i>
@@ -51,7 +53,7 @@
                         </span>
                     </a>
                     {% elsif product.preorder %}
-                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}">
+                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
                         <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                             <span class="icon">
                                 <i class="far fa-clock"></i>
@@ -60,7 +62,7 @@
                         </span>
                     </a>
                     {% else %}
-                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}">
+                    <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
                         <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
                             <span class="icon">
                                 <i class="fas fa-basket-shopping"></i>
