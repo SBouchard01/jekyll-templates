@@ -8,10 +8,12 @@ title: Tour and Events
         <div class="content">
             <p class="title is-2" data-i18n="Upcoming Shows and Events">Upcoming Shows and Events</p>
             <div class="grid is-col-min-12">
+                {% assign event_counter = 0 %}
                 {% for event in site.tour %}
                 {% capture now %}{{ 'now' | date: "%s" }}{% endcapture %}
                 {% capture event_date %}{{ event.date | date: "%s" }}{% endcapture %}
                 {% unless event_date < now %}
+                {% assign event_counter = event_counter | plus: 1 %}
                 <div class="cell">
                     <div class="card" style="height: 100%;">
                         <div class="card-content">
@@ -66,6 +68,10 @@ title: Tour and Events
                 </div>
                 {% endunless %}
                 {% endfor %}
+
+                {% if event_counter == 0 %}
+                <p class="subtitle" data-i18n="No upcoming events">No upcoming events, please check back later.</p>
+                {% endif %}
             </div>
         </div>
     </div>
