@@ -23,19 +23,19 @@ layout: magic
                                 </span>
                             </div>
                             <div class="slideshow">
-                                {% for video in page.videos %}
-                                <div class="slide hidden" id="slide-{{ forloop.index }}">
-                                    <figure class="image">
-                                        <iframe src="{{ video.url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
-                                    </figure>
-                                </div>
-                                {% endfor %}
                                 {% for image in page.images %}
-                                    <div class="slide hidden" id="slide-{{ forloop.index | plus: page.videos.size }}">
+                                    <div class="slide hidden" id="slide-{{ forloop.index }}">
                                         <figure class="image" style="background-color: rgb(60, 60, 60)">
                                             <img src="{{ image.url }}" alt="{{ image.alt }}">
                                         </figure>
                                     </div>
+                                {% endfor %}
+                                {% for video in page.videos %}
+                                <div class="slide hidden" id="slide-{{ forloop.index | plus: page.images.size }}">
+                                    <figure class="image">
+                                        <iframe src="{{ video.url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
+                                    </figure>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
