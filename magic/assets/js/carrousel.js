@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
         element.slide_number = element.querySelectorAll('.slide').length;
         element.current_slide = 1;
 
+        // Handle no slide found
+        if (element.slide_number === 0) {
+            console.warn("No slides found in ", element);
+            element.classList.add('is-hidden');
+        }
+
         // Set the slideshow markers
         const markers = element.querySelector('.scroll-markers');
         for (let i = 1; i <= element.slide_number; i++) {
@@ -74,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function gotoSlide(element, number, manual = false) {
+    // Handle case where only one slide in the carrousel
+    if (element.slide_number <= 1) {
+        return;
+    }
     const carrousel = element.closest('.carrousel');
     if (carrousel) {
         const old_slide = carrousel.current_slide;
