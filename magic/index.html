@@ -60,6 +60,7 @@ title: Magic
                 </div>
             </div>
 
+            {% if site.data.prestations.size > 0 %}
             <p class="title is-2" data-i18n="Prestations">Prestations</p>
 
             <div class="columns is-multiline">
@@ -79,13 +80,16 @@ title: Magic
                 </div>
             {% endfor %}
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
 
-<hr>
 
 <!-- Avis -->
+{% if site.reviews.size > 0 %}
+<hr>
+
 <section class="hero">
     <div class="hero-body has-text-centered">
         <p class="title mb-5" data-i18n="Customer reviews">Customer reviews</p>
@@ -137,9 +141,11 @@ title: Magic
         </div>
     </div>
 </section>
+{% endif %}
 
 
 <!-- Brand + Stats -->
+{% if site.data.brands.size > 0 or site.data.stats.size > 0 %}
 <section class="hero is-black">
     <div class="hero-body has-text-centered">
         {% if site.data.brands.size > 0 %}
@@ -167,6 +173,7 @@ title: Magic
         <br>
         {% endif %}
 
+        {% if site.data.stats.size > 0 %}
         <div class="columns is-vcentered">
             <div class="column is-narrow">
                 <div class="title is-4" data-i18n="Magic with numbers:">Magic with numbers:</div>
@@ -187,8 +194,12 @@ title: Magic
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 </section>
+{% else %}
+<hr>
+{% endif %}
 
 
 <!-- Contact -->
@@ -352,6 +363,7 @@ title: Magic
 
 
 <!-- Gallery -->
+{% if site.data.gallery.size > 0 %}
 <section class="hero is-black" id="gallery">
     <div class="hero-body columns is-vcentered" style="width: 100%;">
         <div class="column has-text-centered is-narrow">
@@ -375,6 +387,7 @@ title: Magic
         </div>
     </div>
 </section>
+{% endif %}
 
 <!-- Gallery modal -->
 <div class="modal" id="gallery-modal">
