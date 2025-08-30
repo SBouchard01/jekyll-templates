@@ -3,6 +3,9 @@ footer: "© 2025 Simon Bouchard. All rights reserved."
 
 css_theme: dark
 
+email: example@email.com
+phone: +1 (234) 567-890
+
 collections:
   tour:
   reviews:
