@@ -584,7 +584,7 @@
                                     <div class="field">
                                         <label class="label" data-i18n="Name *">Name *</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="e.g Alex Smith">
+                                            <input name="name" class="input" type="text" placeholder="e.g Alex Smith" required>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -593,7 +593,7 @@
                                     <div class="field">
                                         <label class="label" data-i18n="Email *">Email *</label>
                                         <div class="control">
-                                            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                                            <input name="email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com" required>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -602,7 +602,7 @@
                                     <div class="field">
                                         <label class="label" data-i18n="Phone number">Phone number</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="e.g. +1 234 567 890">
+                                            <input name="phone" class="input" type="text" placeholder="e.g. +1 234 567 890">
                                         </div>
                                     </div>
                                 </div>
@@ -611,8 +611,20 @@
                                         <label class="label" data-i18n="Event type">Event type</label>
                                         <p class="control is-expanded">
                                             <div class="select is-fullwidth">
-                                                <select>
+                                                <select name="event_type">
                                                     <option data-i18n="Select an option">Select an option</option>
+                                                    
+                                                    <option data-i18n="Business events/title">Business events</option>
+                                                    
+                                                    <option data-i18n="Private events/title">Private events</option>
+                                                    
+                                                    <option data-i18n="Close-up Magic/title">Close-up Magic</option>
+                                                    
+                                                    <option data-i18n="Stage Shows/title">Stage Shows</option>
+                                                    
+                                                    <option data-i18n="Children's Parties/title">Children's Parties</option>
+                                                    
+                                                    <option data-i18n="Digital Magic/title">Digital Magic</option>
                                                     
                                                 </select>
                                             </div>
@@ -623,7 +635,7 @@
                                     <div class="field">
                                         <label class="label" data-i18n="Date">Date</label>
                                         <div class="control is-expanded">
-                                            <input class="input is-fullwidth" type="date">
+                                            <input name="date" class="input is-fullwidth" type="date">
                                         </div>
                                     </div>
                                 </div>
@@ -631,7 +643,7 @@
                                     <div class="field">
                                         <label class="label" data-i18n="Message *">Message *</label>
                                         <div class="control">
-                                            <textarea class="textarea is-fullwidth" placeholder="Write your message here..."></textarea>
+                                            <textarea name="message" class="textarea is-fullwidth" placeholder="Write your message here..." required></textarea>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -640,7 +652,7 @@
                                     <div class="field">
                                         <div class="control">
                                             <label class="checkbox">
-                                                <input type="checkbox">
+                                                <input name="conditions" type="checkbox" required>
                                                 I agree to the <a href="#">terms and conditions</a>
                                             </label>
                                         </div>
@@ -650,7 +662,7 @@
                                     <div class="field">
                                         <div class="control">
                                             <label class="checkbox">
-                                                <input type="checkbox">
+                                                <input name="updates" type="checkbox">
                                                 I want to receive updates via email
                                             </label>
                                         </div>
