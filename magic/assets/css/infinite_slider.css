@@ -40,7 +40,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-1 * var(--width) * (var(--imageQuantity) + 1)));
+        transform: translateX(calc(-1 * var(--width) * var(--imageQuantity) * (1 + 1 / 4)));
     }
 }
 
