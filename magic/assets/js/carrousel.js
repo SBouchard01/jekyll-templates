@@ -71,6 +71,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
+        // add keyboard event listeners if parent elemnt is focused or mouse is over it
+        element.setAttribute('tabindex', '0');
+        element.addEventListener('mouseenter', () => {
+            element.focus();
+        });
+        element.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                gotoSlide(element, element.current_slide - 1, manual = true);
+            } else if (event.key === 'ArrowRight') {
+                gotoSlide(element, element.current_slide + 1, manual = true);
+            }
+        });
+
         // Auto slide
         const autoSlideTime = element.dataset.time || 3000;
         setInterval(() => {
