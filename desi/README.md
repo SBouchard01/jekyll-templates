@@ -308,7 +308,7 @@ If pushing to a repository instead of a root website, you will need to set the `
 > 
 > ```bash
 > git checkout desi
-> git subtree [pull/push] --prefix desi https://github.com/sbouchard01/desi-template.git main
+> git subtree [pull/push] --prefix desi https://github.com/sbouchard01/desi_template.git main
 > ```
 
 > [!NOTE]
