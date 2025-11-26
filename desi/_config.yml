@@ -19,6 +19,8 @@ css_theme: light
 links:
   email: mailto:email@example.com
 
+html_excerpt_length: 50 # Number of words in post excerpts if HTML is detected inside
+
 # Use this if you deploy to a subdirectory, e.g. /desi_template, with no trailing slash
 baseurl: /desi_template
 

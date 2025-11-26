@@ -19,7 +19,15 @@
             </div>
         </div>
 
-        <p class="content">{{ post.excerpt }}</p>
+        <p class="content">
+            <!-- Detect HTML in excerpt -->
+            {% if post.excerpt contains '<' and post.excerpt contains '>' %}
+                <!-- Mostly for translated posts, the first language in site.data.language (here english) should be displayed -->
+                {{ post.excerpt | strip_html | truncatewords: site.html_excerpt_length }}
+            {% else %}
+                {{ post.excerpt}}
+            {% endif %}
+        </p>
 
         {% if post.categories.size > 1 %}
         <div class="tags">
