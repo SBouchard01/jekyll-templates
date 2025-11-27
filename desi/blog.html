@@ -2,6 +2,7 @@
 layout: default
 title: Blog
 permalink: blog/
+display_lang_filter: true
 pagination: 
     enabled: true
     collection: posts
@@ -17,7 +18,9 @@ pagination:
                 </div>
             </div>
             <div class="level-right">
-                {% include language_selector.html page_number=paginator.page %}
+                {% if page.display_lang_filter %}
+                    {% include language_selector.html page_number=paginator.page %}
+                {% endif %}
             </div>
         </div>
 
