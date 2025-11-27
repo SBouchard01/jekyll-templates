@@ -25,11 +25,12 @@
                 <!-- Mostly for translated posts, the first language in site.data.language (here english) should be displayed -->
                 {{ post.excerpt | split: '</p>' | first | strip_html  }}
             {% else %}
-                {{ post.excerpt}}
+                {{ post.excerpt }}
             {% endif %}
         </p>
 
-        {% if post.categories.size > 1 %}
+        {% if post.categories.size > 0 %}
+        {% if post.categories[0] != post.lang or post.categories.size > 1 %}
         <div class="tags">
             <span class="is-size-7" data-i18n="Tags:">Tags: </span>
             {% for tag in post.categories %}
@@ -40,6 +41,7 @@
                 {% endunless %}
             {% endfor %}
         </div>
+        {% endif %}
         {% endif %}
 
         {% if forloop.index < forloop.length %}<hr>{% endif %}

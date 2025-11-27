@@ -29,8 +29,16 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="subtitle is-6">{{ post.date | date_to_string }} {% if post.author %} - {{ post.author }}{% endif %}</p>
-                        <p class="content">{{ post.excerpt }}</p>
+                        <p class="subtitle is-7">{{ post.date | date_to_string }} {% if post.author %} - {{ post.author }}{% endif %}</p>
+                        <p class="content">
+                            <!-- Detect HTML in excerpt -->
+                            {% if post.excerpt contains '<' and post.excerpt contains '>' %}
+                                <!-- Mostly for translated posts, the first language in site.data.language (here english) should be displayed -->
+                                {{ post.excerpt | split: '</p>' | first | strip_html  }}
+                            {% else %}
+                                {{ post.excerpt }}
+                            {% endif %}
+                        </p>
                     </div>
                     <a href="{{ url }}">
                         <div class="card-footer has-text-link">

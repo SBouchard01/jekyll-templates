@@ -14,7 +14,8 @@ layout: default
             {{ content | markdownify }}
         </div>
         <div class="content">
-            {% if page.categories.size > 1 %}
+            {% if page.categories.size > 0 %}
+            {% if page.categories[0] != page.lang or page.categories.size > 1 %}
             <div class="tags">
             <span class="is-size-7" data-i18n="Tags:">Tags: </span>
             {% for tag in page.categories %}
@@ -25,6 +26,7 @@ layout: default
                 {% endunless %}
             {% endfor %}
             </div>
+            {% endif %}
             {% endif %}
         </div>
     </div>
