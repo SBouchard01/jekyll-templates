@@ -43,7 +43,7 @@
             {% if total_pages > display_number %}
 
                 <!-- Pagination for first N pages -->
-                {% if current_page <= display_number %}
+                {% if current_page < display_number %}
                     {% if forloop.index <= display_number %}
                         {% if page == current_page %}
                             <li class="pagination-link is-current"><span>{{ page }}</span></li>
